@@ -1,2 +1,2 @@
-require './hello'
+require './duckspace'
 run Sinatra::Application
