@@ -5,16 +5,17 @@ API and Web
 
 Set up dev
 
-    bundle
+    $ bundle
 
 Boot local
 
-    rackup
+    $ rackup
+    browse to: http://localhost:9292
 
 Set up heroku
 
-    heroku git:remote -a duckspace
+    $ heroku git:remote -a duckspace
 
 Push to heroku
 
-    git push heroku master
+    $ git push heroku master
