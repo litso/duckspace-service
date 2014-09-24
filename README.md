@@ -49,4 +49,10 @@ API
 
     /locations
     /location/1
-    /post/4
+
+    /posts?location_id=1
+    /posts?user_id=1
+    /post/1
+
+    /users
+    /user/1
