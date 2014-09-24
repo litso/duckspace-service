@@ -25,10 +25,14 @@ Set up dev
 
     $ bundle
 
-Boot local
+Local boot
 
-    $ rackup
+    $ rerun rackup
     browse to: http://localhost:9292
+
+Local console
+
+    $ racksh
 
 Set up heroku
 
