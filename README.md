@@ -50,6 +50,7 @@ API
     /locations
     /location/1
 
+    /posts
     /posts?location_id=1
     /posts?user_id=1
     /post/1
