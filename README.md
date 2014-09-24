@@ -19,8 +19,6 @@ Hackday Schedule
 duckspace-service
 =================
 
-API and Web
-
 Set up dev
 
     $ bundle
@@ -45,3 +43,9 @@ Push develop to heroku
 Push master to heroku
 
     $ git push heroku master
+
+API
+
+    /locations
+    /location/1
+    /post/4
