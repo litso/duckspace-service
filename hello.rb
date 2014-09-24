@@ -3,6 +3,10 @@ require 'json'
 require 'sinatra'
 require 'uri'
 
+#
+# DB Setup
+#
+
 # DATABASE_URL=mysql://user:pass@localhost/duckspace?reconnect=true
 uri = URI(ENV['DATABASE_URL'])
 `mysqladmin -f -u root create #{uri.path[1..-1]}` if ENV['RACK_ENV'] == 'development'
@@ -19,6 +23,10 @@ connection.select_all("show tables").map do |r|
   r.values.each { |table| puts "Dropping: #{table}"; connection.execute("drop table #{table}") }
 end
 
+#
+# Schema
+#
+
 ActiveRecord::Migration.create_table :locations do |t|
   t.string :name
 end
@@ -32,9 +40,9 @@ ActiveRecord::Migration.create_table :users do |t|
   t.string  :name
 end
 
-class User < ActiveRecord::Base
-  has_many :posts
-end
+#
+# Models
+#
 
 class Location < ActiveRecord::Base
   has_many :posts
@@ -42,6 +50,14 @@ end
 
 class Post < ActiveRecord::Base
 end
+
+class User < ActiveRecord::Base
+  has_many :posts
+end
+
+#
+# Seed data
+#
 
 location1 = Location.create(:name => 'location1')
 location2 = Location.create(:name => 'location2')
@@ -68,6 +84,10 @@ Post.create(
   :comment     => 'baz'
 )
 
+#
+# Routes
+#
+
 get '/' do
   "Hello World! DEVELOP"
 end
@@ -89,8 +109,10 @@ end
 get '/posts/?' do
   posts = if params[:location_id]
     Location.find(params[:location_id].to_i).posts
-  else
+  elsif params[:user_id]
     User.find(params[:user_id].to_i).posts
+  else
+    Post.all
   end
 
   JSON.generate({
