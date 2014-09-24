@@ -5,7 +5,7 @@ require 'uri'
 
 # DATABASE_URL=mysql://user:pass@localhost/duckspace?reconnect=true
 uri = URI(ENV['DATABASE_URL'])
-`mysqladmin -f -u root create #{uri.path[1..-1]}`
+`mysqladmin -f -u root create #{uri.path[1..-1]}` if ENV['RACK_ENV'] == 'development'
 ActiveRecord::Base.establish_connection(
   :adapter   => "mysql2",
   :host      => uri.host,
