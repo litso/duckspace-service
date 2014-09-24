@@ -35,6 +35,7 @@ Local console
 Set up heroku
 
     $ heroku git:remote -a duckspace
+    $ heroku addons:add cleardb:ignite
 
 Push develop to heroku
 
