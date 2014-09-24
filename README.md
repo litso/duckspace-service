@@ -19,19 +19,23 @@ Hackday Schedule
 duckspace-service
 =================
 
-API and Web
-
 Set up dev
 
     $ bundle
 
-Boot local
+Local boot
 
-    $ rackup
+    $ rerun rackup
+    browse to: http://localhost:9292
+
+Local console
+
+    $ racksh
 
 Set up heroku
 
     $ heroku git:remote -a duckspace
+    $ heroku addons:add cleardb:ignite
 
 Push develop to heroku
 
@@ -40,3 +44,16 @@ Push develop to heroku
 Push master to heroku
 
     $ git push heroku master
+
+API
+
+    /locations
+    /location/1
+
+    /posts
+    /posts?location_id=1
+    /posts?user_id=1
+    /post/1
+
+    /users
+    /user/1
