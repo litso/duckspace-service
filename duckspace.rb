@@ -4,6 +4,7 @@ require 'sinatra'
 require 'uri'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
+require 'carrierwave/processing/mini_magick'
 
 #
 # DB Setup
@@ -60,7 +61,11 @@ end
 # Carrierwave Uploader
 #
 class ImageUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
   storage :fog
+  version :thumb do
+    process :resize_to_fill => [200,200]
+  end
   def store_dir
     ENV['RACK_ENV'].nil? ? (primary_folder = "test") : (primary_folder = ENV['RACK_ENV'])
     "#{primary_folder}/uploads/posts/#{model.id}/images"
