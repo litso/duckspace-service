@@ -1,3 +1,5 @@
+require 'uri'
+
 #
 # DB Setup
 #
