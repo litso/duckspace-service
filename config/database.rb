@@ -1,5 +1,3 @@
-require 'active_record'
-
 #
 # DB Setup
 #
