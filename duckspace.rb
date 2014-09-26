@@ -1,8 +1,6 @@
 require 'json'
 require 'sinatra'
 
-# after { ActiveRecord::Base.connection.close }
-
 #
 # Routes
 #
