@@ -6,7 +6,7 @@ require 'sinatra'
 #
 
 get '/' do
-  "Hello World! DEVELOP"
+  "Hello World!"
 end
 
 get '/locations' do
