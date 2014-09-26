@@ -25,7 +25,7 @@ Set up dev
 
 Local boot
 
-    $ rerun rackup
+    $ rerun puma
     browse to: http://localhost:9292
 
 Local console
