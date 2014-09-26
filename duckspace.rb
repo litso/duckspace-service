@@ -1,6 +1,5 @@
 require 'json'
 require 'sinatra'
-require 'uri'
 
 #
 # Routes
