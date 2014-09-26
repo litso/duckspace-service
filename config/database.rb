@@ -13,7 +13,8 @@ ActiveRecord::Base.establish_connection(
   :username  => uri.user,
   :password  => uri.password,
   :database  => uri.path[1..-1],
-  :reconnect => true
+  :reconnect => true,
+  :pool      => 5
 )
 connection = ActiveRecord::Base.connection
 connection.select_all("show tables").map do |r|
