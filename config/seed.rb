@@ -26,3 +26,25 @@ Post.create(
   :user_id     => user3.id,
   :comment     => 'baz'
 )
+
+adjectives = [
+  'awesome',
+  'burly',
+  'agressive',
+  'aged',
+  'beneficial',
+  'babyish'
+]
+adjectives.each do |adj|
+  Word.create(:word => adj, :part_of_speech => 'adjective')
+end
+nouns = [
+  'data',
+  'food',
+  'bird',
+  'internet',
+  'fact'
+]
+nouns.each do |noun|
+  Word.create(:word => noun, :part_of_speech => 'noun')
+end

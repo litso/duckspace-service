@@ -23,6 +23,17 @@ get '/location/:location_id' do
   })
 end
 
+post '/location/new' do
+  location = Location.new
+  location.name = params[:name]
+  location.save
+
+  JSON.generate({
+    :err => 0,
+    :results => [location.as_json],
+  })
+end
+
 get '/posts/?' do
   posts = if params[:location_id]
     Location.find(params[:location_id].to_i).posts
@@ -58,6 +69,19 @@ get '/user/:user_id' do
   JSON.generate({
     :err => 0,
     :results => User.find(user_id).as_json,
+  })
+end
+
+post '/user/new' do
+  user = User.new
+  adjectives = Word.where(:part_of_speech => 'adjective').order('RAND()').first(2)
+  noun = Word.where(:part_of_speech => 'noun').order('RAND()').first()
+  user.name = adjectives[0].word.capitalize + adjectives[1].word.capitalize + noun.word.capitalize
+  user.save
+
+  JSON.generate({
+    :err => 0,
+    :results => [user.as_json],
   })
 end
 
