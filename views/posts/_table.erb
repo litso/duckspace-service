@@ -15,8 +15,8 @@
     <tr>
       <td><%= p.id %></td>
       <td><%= p.image.version_exists?(:thumb) and p.image_url(:thumb) ? image_tag(p.image_url(:thumb)) : '-No image-' %></td>
-      <td><%= p.user.name %></td>
-      <td><%= p.location.name %></td>
+      <td><%= p.user ? p.user.name : 'None' %></td>
+      <td><%= p.location ? p.location.name : 'None' %></td>
       <td><%= p.comment %></td>
     </tr>
   <% end %>
