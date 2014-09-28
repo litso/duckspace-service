@@ -10,22 +10,20 @@ user2 = User.create(:name => 'nizebulous')
 user3 = User.create(:name => 'siggy')
 Post.create(
   :location_id => location1.id,
-  :image       => 'https://avatars3.githubusercontent.com/u/73529?v=2&s=460',
   :user_id     => user1.id,
   :comment     => 'foo'
 )
 Post.create(
   :location_id => location1.id,
-  :image       => 'https://avatars3.githubusercontent.com/u/1147309?v=2&s=460',
   :user_id     => user2.id,
   :comment     => 'bar'
 )
 Post.create(
   :location_id => location2.id,
-  :image       => 'https://avatars1.githubusercontent.com/u/236915?v=2&s=460',
   :user_id     => user3.id,
   :comment     => 'baz'
 )
+ActiveRecord::Base.connection.execute("UPDATE posts SET image='small147.png'")
 
 adjectives = [
   'awesome',
