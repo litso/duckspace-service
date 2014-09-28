@@ -1,0 +1,24 @@
+<% 
+  @posts = Post.order(posted_at: :desc).first(10)
+%>
+<div id="posts">
+  <h3>Posts</h3>
+  <table>
+    <tr>
+      <th>Post ID</th>
+      <th>Post Thumbnail</th>
+      <th>Poster</th>
+      <th>Post Location</th>
+      <th>Post Comment</th>
+    </tr>
+  <% @posts.each do |p| %>
+    <tr>
+      <td><%= p.id %></td>
+      <td><%= p.image.version_exists?(:thumb) and p.image_url(:thumb) ? image_tag(p.image_url(:thumb)) : '-No image-' %></td>
+      <td><%= p.user.name %></td>
+      <td><%= p.location.name %></td>
+      <td><%= p.comment %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

@@ -1,0 +1,22 @@
+<% 
+  last_id = params[:user_id]
+  if last_id.nil?
+    last_id = 0
+  end
+  @users = User.where('id > ?', last_id).first(10)
+%>
+<div id="users">
+  <h3>Users</h3>
+  <table>
+    <tr>
+      <th>User ID</th>
+      <th>User Name</th>
+    </tr>
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.id %></td>
+      <td><%= u.name %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
