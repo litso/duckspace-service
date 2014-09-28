@@ -6,7 +6,9 @@ require 'sinatra'
 #
 
 get '/' do
-  "Hello World!"
+  @locations = Location.all
+  @users = User.all
+  erb :index
 end
 
 get '/locations' do

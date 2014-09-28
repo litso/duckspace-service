@@ -1,0 +1,22 @@
+<% 
+  last_id = params[:location_id]
+  if last_id.nil?
+    last_id = 0
+  end
+  @locations = Location.where('id > ?', last_id).first(10)
+%>
+<div id="locations">
+  <h3>Locations</h3>
+  <table>
+    <tr>
+      <th>Location ID</th>
+      <th>Location Name</th>
+    </tr>
+  <% @locations.each do |loc| %>
+    <tr>
+      <td><%= loc.id %></td>
+      <td><%= loc.name %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
