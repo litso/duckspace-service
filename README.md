@@ -47,13 +47,17 @@ Push master to heroku
 
 API
 
-    /locations
-    /location/1
+    get /locations
+    get /location/1
+    post /location/new?name=FranklySpeaking
 
-    /posts
-    /posts?location_id=1
-    /posts?user_id=1
-    /post/1
+    get /posts
+    get /posts?location_id=1
+    get /posts?user_id=1
+    get /post/1
 
-    /users
-    /user/1
+    get /users
+    get /user/1
+    post /user/new
+
+    post /upload?location_id=1&user_id=1&comment=verynice  form_data, field=file (to upload file)
