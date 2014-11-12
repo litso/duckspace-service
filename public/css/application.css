@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+
+div#splash {
+  position: relative;
+  background-color: lightblue;
+  display:inline-block;
+  z-index: -1;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+p#blurb {
+  position: relative;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#logo {
+  position: relative;
+  height: 200px;
+}
+
+div#download {
+  position: relative;
+  height: 50;
+}
+
+img#logo {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  width: 200px;
+  z-index: 2;
+}
+
+div.container {
+  position: relative;
+  left: 0;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table#latest-posts {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#feed {
+  background-color: sandybrown;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+div#feed h2 {
+  margin-top: 0px;
+  position: relative;
+  top: 20px;
+  margin-bottom: 20px;
+}
+
+div.table {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+div.row {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+span#post-user {
+  height: 50;
+  width: 50;
+  position: relative;
+  top: 50%;
+  margin-top: -25;
+}
+
+table#latest-posts div.row {
+  height = 200px;
+}
+
+span#post-image img {
+  position: relative;
+  float: left;
+}
+
+div#odd {
+  background-color: sandybrown;
+}
+
+div#even {
+  background-color: royalblue;
+}
+
+div.row-spacer {
+  height: 20px;
+}
