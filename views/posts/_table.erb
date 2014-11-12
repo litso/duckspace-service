@@ -1,24 +1,15 @@
 <% 
   @posts = Post.order(posted_at: :desc).first(10)
 %>
-<div id="posts">
-  <h3>Posts</h3>
-  <table>
-    <tr>
-      <th>Post ID</th>
-      <th>Post Thumbnail</th>
-      <th>Poster</th>
-      <th>Post Location</th>
-      <th>Post Comment</th>
-    </tr>
-  <% @posts.each do |p| %>
-    <tr>
-      <td><%= p.id %></td>
-      <td><%= p.image.version_exists?(:thumb) and p.image_url(:thumb) ? image_tag(p.image_url(:thumb)) : '-No image-' %></td>
-      <td><%= p.user ? p.user.name : 'None' %></td>
-      <td><%= p.location ? p.location.name : 'None' %></td>
-      <td><%= p.comment %></td>
-    </tr>
+<div class="table" id="latest-posts">
+  <% @posts.each_with_index do |p, i| %>
+    <div class="row" id="<%= i % 2 == 0 ? 'odd' : 'even' %>">
+      <div class="row-spacer"></div>
+      <div id="post-image"><%= p.image.version_exists?(:thumb) and p.image_url(:thumb) ? image_tag(p.image_url(:thumb)) : '-No image-' %></div>
+      <span id="post-user"><%= p.user ? p.user.name : 'Anonymous' %></span>
+      <span id="post-comment"><%= p.comment ? 'says "' + p.comment + '"' : '"has nothing to say"' %></span>
+      <span id="post-location">@ <%= p.location ? p.location.name : 'Unknown location' %></span>
+      <div class="row-spacer"></div>
+    </div>
   <% end %>
-  </table>
 </div>
