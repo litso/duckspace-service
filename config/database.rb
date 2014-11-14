@@ -29,11 +29,16 @@ ActiveRecord::Migration.create_table :locations do |t|
   t.string :name
 end
 ActiveRecord::Migration.create_table :posts do |t|
-  t.integer :location_id
-  t.string  :image
-  t.integer :user_id
-  t.string  :comment
+  t.integer  :location_id
+  t.string   :image
+  t.integer  :user_id
+  t.string   :comment
+  t.datetime :posted_at
 end
 ActiveRecord::Migration.create_table :users do |t|
   t.string  :name
+end
+ActiveRecord::Migration.create_table :words do |t|
+  t.string :word
+  t.string :part_of_speech
 end

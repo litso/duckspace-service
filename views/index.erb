@@ -1,0 +1,24 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="css/application.css">
+</head>
+<div id="splash">
+  <h2>DuckSpace</h2>
+  <p id="blurb">
+    DuckSpace is a network of mobile "photo booths" where the camera is on your phone!
+    When you get close to a "photo booth" the DuckSpace app will alert you and you are
+    free to leave your best duck face for the community to admire!
+  </p>
+  <div class="container">
+    <div id="logo">
+      <img id="logo" src="https://duckspace-images.s3.amazonaws.com/development/uploads/posts/1/images/thumb_small147.png">
+    </div>
+    <div id="download">
+      <a href="javascript:void(0)">Download the iOS App</a>
+    </div>
+  </div>
+</div>
+<div id="feed">
+  <h2>Who is duckspacing now?</h2>
+  <%= erb 'posts/_table'.to_sym %>
+</div>
+<div class="footer" id="footer"></div>

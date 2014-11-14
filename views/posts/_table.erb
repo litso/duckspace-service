@@ -1,0 +1,15 @@
+<% 
+  @posts = Post.order(posted_at: :desc).first(10)
+%>
+<div class="table" id="latest-posts">
+  <% @posts.each_with_index do |p, i| %>
+    <div class="row" id="<%= i % 2 == 0 ? 'odd' : 'even' %>">
+      <div class="row-spacer"></div>
+      <div id="post-image"><%= p.image.version_exists?(:thumb) and p.image_url(:thumb) ? image_tag(p.image_url(:thumb)) : '-No image-' %></div>
+      <span id="post-user"><%= p.user ? p.user.name : 'Anonymous' %></span>
+      <span id="post-comment"><%= p.comment ? 'says "' + p.comment + '"' : '"has nothing to say"' %></span>
+      <span id="post-location">@ <%= p.location ? p.location.name : 'Unknown location' %></span>
+      <div class="row-spacer"></div>
+    </div>
+  <% end %>
+</div>
